@@ -1,0 +1,369 @@
+.app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Upload Section */
+.upload-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.upload-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.upload-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.upload-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.upload-area {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.upload-area:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.upload-area.active {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.upload-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.upload-placeholder svg {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.upload-placeholder p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.uploaded-file,
+.uploaded-files {
+  color: #fff;
+}
+
+.uploaded-file svg,
+.uploaded-files svg {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.uploaded-files ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.uploaded-files li {
+  padding: 5px 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 150px;
+  justify-content: center;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #ff6b6b;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+/* Results Section */
+.results-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.results-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table th {
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.table td {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.total-points {
+  font-weight: 700;
+  color: #4CAF50 !important;
+  font-size: 1.1rem !important;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.member {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .upload-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .results-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .table-container {
+    font-size: 0.8rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px 8px;
+  }
+  
+  .team-members {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .upload-card {
+    padding: 15px;
+  }
+  
+  .upload-area {
+    padding: 20px 10px;
+  }
+  
+  .upload-placeholder p {
+    font-size: 0.9rem;
+  }
+} 
