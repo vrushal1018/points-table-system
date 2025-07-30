@@ -1,176 +1,161 @@
-# BGMI Tournament Points Table System
+# BGMI Points Table System
 
-A web application that uses AI to analyze BGMI tournament slot and result images to generate points tables automatically.
+A comprehensive tournament management system for BGMI (Battlegrounds Mobile India) tournaments that automatically generates points tables from tournament images using AI.
 
-## Features
+## 🚀 Features
 
-- 🖼️ **AI-Powered Image Analysis**: Uses Google Gemini AI to analyze tournament images
-- 📊 **Automatic Points Calculation**: Calculates position points and finish points
-- 📈 **Real-time Points Table**: Generates sorted points table with rankings
-- 💾 **CSV Export**: Export results to CSV format
-- 🌙 **Dark Mode**: Toggle between light and dark themes
-- 📱 **Responsive Design**: Works on desktop and mobile devices
+- **Multi-Image Support**: Upload up to 10 images for both slot registration and tournament results
+- **AI-Powered Analysis**: Uses Google Gemini API to extract team information and results from images
+- **Automatic Points Calculation**: Generates comprehensive points tables with rankings
+- **Enhanced Error Handling**: Robust retry mechanism for API overload scenarios
+- **Export Functionality**: Download results as CSV files
+- **Real-time Processing**: Live feedback during image analysis
 
-## Quick Start
+## 🛠️ Tech Stack
 
-### Prerequisites
+- **Frontend**: React.js with modern UI components
+- **Backend**: Node.js with Express.js
+- **AI Integration**: Google Gemini API for image analysis
+- **File Upload**: Multer for handling multipart form data
+- **Styling**: CSS3 with responsive design
+
+## 📋 Prerequisites
 
 - Node.js (v14 or higher)
-- A valid Google Gemini API key
+- npm or yarn
+- Google Gemini API key
 
-### Installation
+## 🚀 Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd pointstablesystem
+   git clone https://github.com/vrushal1018/points-table-system.git
+   cd points-table-system
    ```
 
 2. **Install dependencies**
    ```bash
-   npm run install-all
-   ```
-
-3. **Set up your Gemini API key**
-   
-   **Option A: Create a .env file (Recommended)**
-   ```bash
-   # Create .env file in the server directory
-   echo "GEMINI_API_KEY=your_actual_api_key_here" > server/.env
-   ```
-   
-   **Option B: Set environment variable**
-   ```bash
-   # Windows
-   set GEMINI_API_KEY=your_actual_api_key_here
-   
-   # Linux/Mac
-   export GEMINI_API_KEY=your_actual_api_key_here
-   ```
-
-4. **Get a free Gemini API key**
-   - Visit: https://makersuite.google.com/app/apikey
-   - Create a new API key
-   - Copy the key and use it in step 3
-
-5. **Start the application**
-   ```bash
-   npm run dev
-   ```
-
-6. **Open your browser**
-   - Navigate to: http://localhost:3000
-   - The React app will open automatically
-
-## Troubleshooting
-
-### "Failed to process image with Gemini API" Error
-
-If you're getting this error, follow these steps:
-
-1. **Check your API key**
-   ```bash
-   node test-gemini.js
-   ```
-   This will test if your API key is working.
-
-2. **Common issues and solutions:**
-
-   **❌ API Key Issues:**
-   - Make sure you have a valid API key from https://makersuite.google.com/app/apikey
-   - The API key should start with "AIzaSy..."
-   - Check if your API key has expired
-
-   **❌ Network Issues:**
-   - Check your internet connection
-   - Try using a VPN if you're behind a corporate firewall
-   - The Gemini API might be blocked in some regions
-
-   **❌ Rate Limiting:**
-   - Wait a few minutes and try again
-   - The free tier has rate limits
-
-   **❌ Image Format Issues:**
-   - Make sure images are JPEG, PNG, or JPG format
-   - Image size should be under 10MB
-   - Try with smaller, clearer images
-
-3. **Test the API manually:**
-   ```bash
-   # Test basic API connectivity
-   node test-gemini.js
-   
-   # If that fails, try with curl
-   curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=YOUR_API_KEY" \
-     -H "Content-Type: application/json" \
-     -d '{"contents":[{"parts":[{"text":"Hello"}]}]}'
-   ```
-
-4. **Alternative: Use a different API key**
-   - Create a new API key from Google AI Studio
-   - Update your .env file with the new key
-   - Restart the server
-
-### Server won't start
-
-1. **Check if port 5000 is available:**
-   ```bash
-   # Windows
-   netstat -ano | findstr :5000
-   
-   # Linux/Mac
-   lsof -i :5000
-   ```
-
-2. **Use a different port:**
-   ```bash
-   set PORT=3001
-   npm run server
-   ```
-
-### Client won't start
-
-1. **Check if port 3000 is available**
-2. **Clear npm cache:**
-   ```bash
-   npm cache clean --force
-   cd client
    npm install
+   cd client && npm install
+   cd ..
    ```
 
-## Usage
+3. **Set up environment variables**
+   Create a `.env` file in the `server` directory:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ```
 
-1. **Upload Slot Images**: Drag and drop images showing team slots/assignments
-2. **Upload Result Images**: Drag and drop images showing match results
-3. **Analyze**: Click "Analyze Images" to process with AI
-4. **View Results**: See the generated points table
-5. **Export**: Download results as CSV
+4. **Get Gemini API Key**
+   - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Create a new API key
+   - Add it to your `.env` file
 
-## API Endpoints
+## 🏃‍♂️ Running the Application
 
-- `POST /api/analyze-slots`: Analyze slot images
-- `POST /api/analyze-results`: Analyze result images
+### Development Mode
+```bash
+npm run dev
+```
 
-## Environment Variables
+This will start both the backend server (port 5000) and React frontend (port 3000).
 
-- `GEMINI_API_KEY`: Your Google Gemini API key
-- `PORT`: Server port (default: 5000)
-- `NODE_ENV`: Environment (development/production)
+### Production Mode
+```bash
+# Build the React app
+cd client && npm run build
 
-## Tech Stack
+# Start the server
+cd .. && npm start
+```
 
-- **Frontend**: React, Axios, React Dropzone
-- **Backend**: Node.js, Express, Multer
-- **AI**: Google Gemini API
-- **Styling**: CSS3 with dark mode support
+## 📖 Usage
 
-## Contributing
+1. **Open the application** at `http://localhost:3000`
+
+2. **Upload Slot Images**:
+   - Click "Choose Files" in the Slot Images section
+   - Upload images showing team registrations/slots
+   - You can upload up to 10 images
+
+3. **Upload Result Images**:
+   - Click "Choose Files" in the Result Images section
+   - Upload images showing tournament results
+   - You can upload up to 10 images
+
+4. **Analyze Images**:
+   - Click "Analyze Images" button
+   - The system will process all images using AI
+
+5. **View Results**:
+   - Generated points table shows:
+     - Team rankings
+     - Total finishes
+     - Position points
+     - Total points
+
+6. **Export Results**:
+   - Click "Export to CSV" to download results
+
+## 🔧 API Endpoints
+
+- `POST /api/analyze-slots` - Analyze slot registration images
+- `POST /api/analyze-results` - Analyze tournament result images
+- `GET /api/health` - Health check endpoint
+
+## 🛡️ Error Handling
+
+The system includes robust error handling for:
+- **API Overload**: Automatic retry with exponential backoff
+- **Network Timeouts**: Extended timeout periods
+- **Invalid Images**: Graceful error messages
+- **Rate Limiting**: Built-in delays between API calls
+
+## 📁 Project Structure
+
+```
+pointstablesystem/
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── App.js         # Main application component
+│   │   ├── App.css        # Styling
+│   │   └── index.js       # Entry point
+│   └── package.json
+├── server/                 # Node.js backend
+│   ├── index.js           # Express server with API routes
+│   └── .env               # Environment variables
+├── package.json           # Root package.json
+└── README.md             # This file
+```
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📝 License
 
-MIT License - see LICENSE file for details 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+If you encounter any issues:
+1. Check the console for error messages
+2. Ensure your Gemini API key is valid
+3. Verify all dependencies are installed
+4. Check that both servers are running (ports 3000 and 5000)
+
+## 🔄 Recent Updates
+
+- ✅ Multi-image upload support (up to 10 images per category)
+- ✅ Enhanced error handling with retry mechanism
+- ✅ Improved UI with image previews and removal
+- ✅ Export functionality for results
+- ✅ Health check endpoint for monitoring
+
+---
+
+**Built with ❤️ for the BGMI community** 
